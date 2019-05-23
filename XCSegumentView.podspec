@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XCSegumentView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "XCSegumentView"
 
   s.description  = "XCSegumentView自定义分段Segument"

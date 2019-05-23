@@ -26,12 +26,22 @@
 - (void)setupUI
 {
     // 设置 titleView
-    XCSegumentView *titleView = [XCSegumentView segumentViewWithTitles:@[@"消息", @"好友", @"群组"] options:NULL didClickItemHandle:^(XCSegumentView *segumentView, NSInteger index) {
+    XCSegumentOptionConfiguration *configurations = [XCSegumentOptionConfiguration defaultConfiguration];
+    configurations.titleFontSize = 13;
+    configurations.itemWidth     = 70;
+    configurations.itemHeight    = 30;
+    configurations.cornerRadius  = 4;
+    configurations.normalTitleColor        = [UIColor whiteColor];
+    configurations.selectedTitleColor      = [UIColor redColor];
+    configurations.normalBackgroundColor   = [UIColor redColor];
+    configurations.selectedBackgroundColor = [UIColor whiteColor];
+    XCSegumentView *titleView = [XCSegumentView segumentViewWithTitles:@[@"消息", @"好友", @"群组"] options:configurations didClickItemHandle:^(XCSegumentView *segumentView, NSInteger index) {
         
         NSLog(@"点击了第%zi个按钮", index);
-
     }];
     
+    titleView.layer.borderWidth = 1;
+    titleView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.navigationItem.titleView = titleView;
 }
 
